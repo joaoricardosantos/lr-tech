@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-gold: #c9a24b;
+  --color-gold-light: #e0c078;
+  --color-gold-dark: #a88435;
+  --color-ink: #0d0d0d;
+  --color-ink-soft: #1a1a1a;
+  --color-white: #ffffff;
+  --surface: #111111;
+  --ink-muted: #b8b8b8;
+  --on-gold: #0d0d0d;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--color-ink);
+  color: var(--color-white);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@layer components {
+  .page-wrap {
+    @apply mx-auto w-full max-w-page px-5 md:px-8 lg:px-10;
+  }
+
+  .btn {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 text-base font-semibold tracking-wide transition duration-200 ease-out;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-gold {
+    @apply bg-gold text-ink shadow-cta hover:bg-gold-light;
+  }
+
+  .btn-outline {
+    @apply border border-gold/70 text-gold hover:border-gold hover:bg-gold/10;
+  }
+
+  .btn-ghost {
+    @apply border border-white/25 text-white hover:border-gold hover:text-gold;
+  }
+
+  .section-kicker {
+    @apply font-display text-xs font-semibold uppercase tracking-[0.22em] text-gold;
+  }
+
+  .gold-line {
+    @apply h-px w-12 bg-gradient-to-r from-gold to-transparent;
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-photo {
+  animation: hero-zoom 20s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    animation: none;
+  }
+}
