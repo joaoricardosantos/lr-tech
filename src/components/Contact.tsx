@@ -1,4 +1,3 @@
-import { site } from "../data/site";
 import { WhatsAppIcon } from "../icons";
 import { whatsappUrl } from "../whatsapp";
 import { Logo } from "./Logo";
